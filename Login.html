@@ -1,209 +1,324 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BoB BUG APPS</title>
+  <title>Vortunix Infinity Login</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Nosifer&display=swap"
+    rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root {
-      --bg:#0a0f1a;
-      --card:#101628;
-      --muted:#9aa4c7;
-      --text:#e8ecff;
-      --primary:#9b5cff;
-      --secondary:#00d4ff;
-      --accent:#6dd6ff;
+      --purple-main: #c084fc;
+      --purple-neon: #d946ef;
+      --purple-glow: #a21caf;
+      --dark-bg: #060014;
+      --text-light: #fff;
+      --card-bg: rgba(24, 0, 45, 0.9);
     }
-    *{box-sizing:border-box;margin:0;padding:0;}
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family:Poppins, sans-serif;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: radial-gradient(circle at 20% 20%, rgba(155,92,255,.2), transparent 30%),
-                  radial-gradient(circle at 80% 10%, rgba(0,212,255,.2), transparent 25%),
-                  radial-gradient(circle at 50% 90%, rgba(109,214,255,.15), transparent 30%),
-                  #0a0f1a;
-      overflow:hidden;
-      padding:20px;
+      background: var(--dark-bg) url('/assets/bg.jpg') center center/cover no-repeat;
+      min-height: 100vh;
+      color: var(--purple-main);
+      font-family: 'UnifrakturCook', cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
     }
+
+    /* Neon glowing animated background overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 30% 20%, #a21caf55 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, #c084fc44 0%, transparent 60%),
+        radial-gradient(circle at 60% 30%, #f0abfc33 0%, transparent 65%);
+      animation: neonGlowBg 7s linear infinite alternate;
+      opacity: 0.93;
+    }
+
+    @keyframes neonGlowBg {
+      to {
+        background:
+          radial-gradient(circle at 25% 24%, #a21caf77 0%, transparent 60%),
+          radial-gradient(circle at 72% 75%, #c084fc66 0%, transparent 65%),
+          radial-gradient(circle at 60% 42%, #f0abfc77 0%, transparent 60%);
+      }
+    }
+
     .card {
-      background: rgba(255,255,255,.05);
+      position: relative;
+      background: var(--card-bg);
+      border: 1.5px solid var(--purple-glow);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 18px;
-      padding: 22px 20px;
+      padding: 34px 25px 24px;
+      border-radius: 24px;
       width: 100%;
-      max-width: 340px;
+      max-width: 410px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(155,92,255,.3);
-      animation: fadeIn 1s ease;
+      z-index: 2;
+      box-shadow: 0 0 44px 2px var(--purple-neon),
+                  0 0 0 2px #fff1 inset;
+      animation: fadeIn 1.2s cubic-bezier(0.4,0.2,0.4,1);
     }
+
     @keyframes fadeIn {
-      from { opacity:0; transform:translateY(20px); }
-      to   { opacity:1; transform:translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(36px) scale(0.97);
+        filter: blur(5px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
     }
-    .logo {
-      width: 70px; height: 70px; border-radius: 50%;
-      margin: 0 auto 14px;
-      box-shadow:0 0 16px var(--primary), 0 0 30px rgba(0,212,255,.4);
-      object-fit:cover;
+
+    .icon {
+      font-size: 36px;
+      color: var(--purple-main);
+      margin-bottom: 10px;
+      text-shadow: 0 0 16px var(--purple-neon), 0 0 24px #fff3;
+      animation: pulseGlow 2s infinite alternate;
     }
-    @keyframes spinGlow {
-      0%   { transform:rotate(0deg); box-shadow:0 0 16px var(--primary);}
-      50%  { box-shadow:0 0 26px var(--secondary);}
-      100% { transform:rotate(360deg); box-shadow:0 0 16px var(--primary);}
+
+    @keyframes pulseGlow {
+      to {
+        text-shadow: 0 0 36px var(--purple-neon), 0 0 12px #fff6;
+      }
     }
+
     .title {
-      font-size:22px;
-      font-family:Orbitron, sans-serif;
-      font-weight:800;
-      color: var(--primary);
-      margin-bottom:4px;
-      text-shadow:0 0 10px rgba(155,92,255,.7);
+      font-size: 34px;
+      font-family: 'Nosifer', cursive;
+      color: var(--text-light);
+      text-shadow: 0 0 24px var(--purple-neon), 0 0 10px var(--purple-glow), 0 0 2px #fff;
+      margin-bottom: 8px;
+      letter-spacing: 1.5px;
+      filter: brightness(1.12);
     }
+
     .subtitle {
-      font-size:12px;
-      color: var(--muted);
-      margin-bottom:20px;
+      font-size: 12px;
+      color: var(--purple-neon);
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 25px;
+      text-shadow: 0 0 7px var(--purple-main), 0 0 18px var(--purple-neon);
+      filter: brightness(1.2);
     }
+
     .form-group {
-      position:relative;
-      margin-bottom:14px;
+      position: relative;
+      margin-bottom: 18px;
     }
+
     .form-group i {
-      position:absolute;left:12px;top:50%;
-      transform:translateY(-50%);
-      color:var(--secondary);
-      font-size:13px;
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--purple-glow);
+      filter: brightness(1.4);
+      text-shadow: 0 0 8px var(--purple-main);
     }
+
     input {
-      width:100%;
-      padding:12px 12px 12px 36px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,.15);
-      background:rgba(7,10,20,.6);
-      color:var(--text);
-      font-size:13px;
-      outline:none;
-      transition: all .3s;
+      width: 100%;
+      padding: 13px 14px 13px 42px;
+      border-radius: 11px;
+      border: none;
+      background: rgba(36, 0, 56, 0.7);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      box-shadow: 0 0 8px var(--purple-neon) inset, 0 0 0px #fff;
+      outline: none;
+      margin-bottom: 2px;
+      letter-spacing: 1px;
+      transition: box-shadow 0.25s;
+      border: 1.2px solid #be4bfc55;
     }
     input:focus {
-      border-color:var(--secondary);
-      box-shadow:0 0 6px var(--secondary);
+      box-shadow: 0 0 18px var(--purple-neon), 0 0 2px #fff inset;
+      border-color: var(--purple-main);
     }
+
     button {
-      width:100%;
-      padding:12px;
-      font-size:14px;
-      font-weight:600;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      background:linear-gradient(90deg, var(--primary), var(--secondary));
-      color:white;
-      transition: all .3s ease;
-      box-shadow:0 0 10px rgba(155,92,255,.4);
+      width: 100%;
+      padding: 14px;
+      font-size: 15px;
+      background: linear-gradient(135deg, #a21caf 0%, #c084fc 100%);
+      color: var(--text-light);
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 6px;
+      box-shadow: 0 0 18px 2px var(--purple-neon), 0 2px 8px #fff2;
+      text-shadow: 0 0 12px var(--purple-neon), 0 0 3px #fff;
+      font-family: 'Nosifer', cursive;
+      letter-spacing: 2px;
+      transition: transform 0.19s, box-shadow 0.17s;
+      outline: none;
+      filter: brightness(1.2);
     }
     button:hover {
-      transform:translateY(-2px) scale(1.03);
-      box-shadow:0 0 16px rgba(0,212,255,.6);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 24px 5px var(--purple-neon), 0 2px 12px #fff4;
+      filter: brightness(1.25);
     }
+
     .buy-access {
-      margin-top:14px;
-      display:inline-block;
-      font-size:12px;
-      padding:8px 16px;
-      border-radius:10px;
-      font-weight:500;
-      background:linear-gradient(90deg,var(--secondary),var(--accent));
-      color:white;
-      text-decoration:none;
-      box-shadow:0 0 12px rgba(0,212,255,.4);
-      font-family:Poppins, sans-serif;
-      transition: all .25s;
+      margin-top: 17px;
+      display: inline-block;
+      font-size: 13px;
+      background: var(--purple-glow);
+      padding: 10px 18px;
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 0 15px var(--purple-neon);
+      font-family: Arial, sans-serif;
+      transition: background 0.3s, box-shadow 0.2s;
+      letter-spacing: 1.2px;
     }
-    .buy-access:hover { transform:scale(1.05); }
+    .buy-access:hover {
+      background: var(--purple-neon);
+      box-shadow: 0 0 24px var(--purple-neon), 0 2px 8px #fff4;
+    }
+
     .footer {
-      margin-top:20px;
-      font-size:10px;
-      color:var(--muted);
+      margin-top: 28px;
+      font-size: 10px;
+      color: var(--purple-glow);
+      font-family: Arial, sans-serif;
+      letter-spacing: 1px;
     }
+
     .toast {
-      position:fixed;
-      bottom:30px;
-      left:50%;
-      transform:translateX(-50%);
-      background: var(--primary);
-      color:white;
-      padding:10px 16px;
-      border-radius:8px;
-      font-size:12px;
-      font-weight:500;
-      box-shadow:0 0 12px rgba(155,92,255,.5);
-      opacity:0;
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--purple-neon);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 0 14px 2px var(--purple-main);
+      opacity: 0;
       animation: fadeInOut 3.8s ease forwards;
-      z-index:100;
+      z-index: 10;
+      text-shadow: 0 0 10px #fff4;
+      letter-spacing: 1px;
     }
+
     @keyframes fadeInOut {
-      0%{opacity:0; transform:translate(-50%,20px);}
-      10%{opacity:1; transform:translate(-50%,0);}
-      90%{opacity:1;}
-      100%{opacity:0; transform:translate(-50%,20px);}
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+      }
+      10% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+      }
+    }
+
+    .profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      margin-bottom: 30px;
+    }
+
+    .profile img {
+      width: 98px;
+      height: 98px;
+      border-radius: 50%;
+      border: 2px solid var(--purple-neon);
+      box-shadow: 0 0 16px 2px var(--purple-neon);
+      filter: brightness(1.09) saturate(1.4);
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 18px 4vw 20px;
+        border-radius: 17px;
+      }
+      .profile img {
+        width: 62px;
+        height: 62px;
+      }
+      .title { font-size: 22px;}
     }
   </style>
 </head>
+
 <body>
   <div class="card">
-    <img src="https://l.top4top.io/p_3547nzwxm0.jpg" alt="Logo" class="logo" />
-    <div class="icon"><i class="fas fa-skull-crossbones"></i></div>
-    <div class="title">BoB - Vyrus</div>
-    <div class="subtitle">Gateway BoB Trashed and Fire</div>
+    <div class="profile">
+      <img src="https://res.cloudinary.com/shaa/image/upload/v1757339222/shaastore/o35g1v4so0tnczirobmz.jpg" alt="Profile" />
+    </div>
+    <div class="title">Vortunix Infinity</div>
+    <div class="subtitle">© 2025 - Gyzen Official.</div>
 
     <form method="POST" action="/auth">
       <div class="form-group">
         <i class="fas fa-user"></i>
-        <input type="text" name="username" placeholder="Username" required />
+        <input type="text" name="username" placeholder="Username" required autocomplete="username"/>
       </div>
       <div class="form-group">
         <i class="fas fa-key"></i>
-        <input type="password" name="key" placeholder="Password" required />
+        <input type="text" name="key" placeholder="Password" required autocomplete="current-password"/>
       </div>
       <button type="submit">
-        <i class="fa-solid fa-right-to-bracket"></i> LOGIN
+        <i class="fas fa-biohazard" style="margin-right: 8px;"></i>
+        L O G I N
+        <i class="fas fa-biohazard" style="margin-left: 8px;"></i>
       </button>
     </form>
 
-    <a class="buy-access" href="https://t.me/FlowNotDev" target="_blank">
+    <a class="buy-access" href="https://t.me/GyzenVtx" target="_blank">
       <i class="fas fa-coins"></i> Buy Key Access
     </a>
-
-    <div class="footer">© 2025 FlowGanteng</div>
   </div>
 
   <div id="toast" class="toast" style="display:none;"></div>
   <script>
-
     const params = new URLSearchParams(window.location.search);
-
     const msg = params.get("msg");
-
     if (msg) {
-
       const toast = document.getElementById("toast");
-
       toast.textContent = msg;
-
       toast.style.display = "block";
-
     }
-
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9918b40bcbb26bca',t:'MTc2MDk2NTI4MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
