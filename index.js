@@ -23,8 +23,8 @@ const {
 } = require('lotusbail');
 
 // ==================== CONFIGURATION ==================== //
-const BOT_TOKEN = "TOKENS BOT MU";
-const OWNER_ID = "ID_MU";
+const BOT_TOKEN = "8444498891:AAENIbUgr948AffloAhO3AwFeK0jUJuEXwc";
+const OWNER_ID = "7626222324";
 const bot = new Telegraf(BOT_TOKEN);
 const { domain, port } = require("./database/config");
 const app = express();
